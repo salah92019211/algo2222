@@ -1,0 +1,35 @@
+ALGORITHM checkpoint
+VAR 
+    k,ch:STRING:="";
+    i,j,count:INTEGER:=0;
+    T:ARRAY:=[];
+    c:CHAR;
+BEGIN
+    REPEAT
+        Write("enter the second character of this sentence");
+        Read(c);
+        ch+=c;
+    UNTIL (c==".")
+    END_WHILE
+    Write("the length of the sentence is: ",ch.length);
+    WHILE (i<((ch.length)-1)) DO
+        IF (ch[i]!=" ") THEN
+            k+=ch[i];
+        ELSE
+            T[j]:=k;
+            k:="";
+            j++;
+        END_IF
+        i++; 
+        SWITCH (ch[i-1].upper()) DO
+            case "A" : count++;break;
+            case "E" : count++;break;
+            case "I" : count++;break;
+            case "O" : count++;break;
+            case "U" : count++;break;
+            case "Y" : count++;break;
+            default : break;
+        END_SWITCH
+        
+    END_WHILE
+    Write("The number of words on this sentence is equal to: ", j);
